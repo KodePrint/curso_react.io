@@ -1,22 +1,10 @@
-body {
-    background: #16171d;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    width: 100vw;
-}
-.Layout {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
+@use 'vars';
+
 .container {
     display: grid;
     grid-template-rows: repeat(3, auto);
     max-width: 1248px;
-    width: 80%;
+    width: auto;
 }
 .error_title {
     display: flex;
@@ -30,6 +18,9 @@ body {
     transform: scale(1.5);
     position: relative;
     padding: 30px;
+    color: var(--very-light-pink);
+    margin: 0 0 24px 0;
+    background: transparent;
 }
 .error_title h2::before,
 .error_title h2::after {
@@ -40,19 +31,19 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    background: #16171d;
-    color: white;
+    color: var(--very-light-pink);
+    background: transparent;
     overflow: hidden;
 }
 .error_title h2:before {
     left: 3px;
-    text-shadow: -2px 0 red;
-    animation: glitch-1 5s 0s linear reverse infinite;
+    text-shadow: -2px 0 var(--hospital-green);
+    animation: glitch-1 3s 0s linear reverse infinite;
 }
 .error_title h2::after {
     left: -3px;
-    text-shadow: -2px 0 blue;
-    animation: glitch-2 5s 0s linear reverse infinite;
+    text-shadow: -2px 0 pink;
+    animation: glitch-2 2s 0s linear reverse infinite;
 }
 @keyframes glitch-1 {
     0% {
@@ -186,8 +177,11 @@ body {
 }
 .message_container {
     display: grid;
+    width: 60%;
+    margin: auto;
     grid-template-columns: 50% 50%;
     gap: 24px;
+    margin-bottom: 24px;
     justify-content: center;
     align-items: center;
 }
@@ -200,7 +194,14 @@ body {
     font-size: 70px;
     transform: scale(2);
     transition: .3s all ease;
+    color: var(--very-light-pink);
     animation: error_message 1s linear;
+}
+.container div:last-child {
+    display: flex;
+    justify-content: center;
+    font-size: var(--xs);
+    color: var(--hospital-green);
 }
 @keyframes error_message {
     0% {opacity: 0; filter: blur(1px);}
@@ -222,13 +223,14 @@ body {
     width: 270px;
     margin-bottom: 24px;
     border-radius: 15px;
-    color: #f2f2f2;
+    color: var(--very-light-pink);
     font-weight: bold;
-    background: #2c3a47;
+    background: transparent;
+    border: 2px solid var(--hospital-green);
     transition: .3s all linear;
 }
 .back_url:hover {
-    background: plum;
+    background: var(--hospital-green);
     color: #2c3a47;
 }
 
@@ -242,7 +244,7 @@ body {
 .ghost {
     width: 140px;
     height: 160px;
-    background: #f2f2f2;
+    background: var(--very-light-pink);
     border-radius: 70px 70px 0 0;
     position: relative;
     cursor: pointer;
@@ -357,22 +359,23 @@ body {
 }
 .back_url:hover ~ .ghost .hands span:last-child {
     left: calc(100% - 20px);
-    background: #f2f2f2;
+    background: var(--very-light-pink);
 }
 .back_url:hover ~ .ghost .hands span:first-child {
     left: -10px;
-    background: #f2f2f2;
+    background: var(--very-light-pink);
 }
 .feet {
     position: absolute;
     width: 100%;
     bottom: -20px;
     display: flex;
+    overflow: hidden;
 }
 .feet span {
     flex: 1;
     height: 30px;
-    background: #f2f2f2;
+    background: var(--very-light-pink);
     border-radius: 0 0 20px 20px;
     animation: feet infinite 2s linear;
 }
@@ -385,8 +388,8 @@ body {
 
 @keyframes feet {
     0% {transform: skew(0deg, 0deg);}
-    25% {transform: skew(0deg, 10deg);}
+    25% {transform: skew(0deg, 15deg);}
     50% {transform: skew(0deg, 0deg);}
-    75% {transform: skew(0deg, -10deg);}
+    75% {transform: skew(0deg, -15deg);}
     100% {transform: skew(0deg, 0deg);}
 }

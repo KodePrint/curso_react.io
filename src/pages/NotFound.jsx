@@ -27,7 +27,10 @@ const NotFound = () => {
                             <span></span><span></span>
                         </div>
                         <div className="feet">
-                            <span></span><span></span><span></span><span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
                     </div>
                 </div>
