@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/Order.scss';
+import AppContext from '../context/AppContext';
 
-const Order = () => {
+const Order = ({product}) => {
 	return (
 		<div className="Order">
 			<p>
